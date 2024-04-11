@@ -12,7 +12,7 @@ struct DefaultWordlistDisplayView: View {
     @State var language: String = ""
     @State var languagesindex: Int = 0
     @State var word: String = ""
-    @State var words: [(word: String, meaning: String)] = []
+    @State var words: [(id: UUID, word: String, meaning: String)] = []
     @State var wordindex: Int = 0
     @State var meaning: String = ""
     @State var errorMessage: String?
@@ -31,7 +31,8 @@ struct DefaultWordlistDisplayView: View {
                                 guard !word.isEmpty && !meaning.isEmpty else {
                                     errorMessage = "Please add a word and its meaning to continue."
                                     return}
-                                words.append((word: word, meaning: meaning))
+                                let id = UUID()
+                                words.append((id: id, word: word, meaning: meaning))
                                 word = ""
                                 meaning = ""
                             }) {
@@ -46,37 +47,45 @@ struct DefaultWordlistDisplayView: View {
                             Toggle("Sort list A-Z", isOn: $sortedAlphabetically)
                             List {
                                 ForEach(words.indices, id: \.self) { index in
-//                                    Button(action: {
-                                    /*}) *//*{*/
-                                        NavigationLink(destination: WordDisplayView(word: words[index].word, wordindex: index+1, meaning:  words[index].meaning)) {
-                                            if sortedAlphabetically {
-                                                let sortedWords = words.sorted(by: { $0.word < $1.word })
-                                                Text(sortedWords[index].word)
-                                            } else {
-                                                Text(words.reversed()[index].word)
-                                            }
-                                            
+                                    NavigationLink(destination: WordDisplayView(word: words[index].word, wordindex: index, meaning:  words[index].meaning)) {
+                                        if sortedAlphabetically {
+                                            let sortedWords = words.sorted(by: { $0.word < $1.word })
+                                            Text(sortedWords[index].word)
+                                        } else {
+                                            Text(words.reversed()[index].word)
                                         }
-                                        
-                                        
-                                        
-                                        
-                                        
                                     }
-                                .onDelete(perform: removeRows)
+                                    
                                 }
-//                                .onDelete(perform: removeRows)
+                                .onDelete  { indexSet in
+                                    for index in indexSet {
+                                        if let deletionIndex = words.firstIndex(where: { $0.id == words[index].id }) {
+                                            words.remove(at: deletionIndex)
+                                        }
+                                    }
+                                }
+                                }
                             }
+                                    
+                                    }
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                           
+                        }
                         }
                     }
-                }
-            }
-          
-            }
-    func removeRows(at offsets: IndexSet) {
-        words.remove(atOffsets: offsets)
-        }
-  
-    }
+                
+       
 
 
+
+
+//struct WordlistDisplayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DefaultWordlistDisplayView(sortedAlphabetically: false)
+//    }
+//}

@@ -18,10 +18,11 @@ struct WordDisplayView: View {
     
     var body: some View {
         VStack{
-        
+        Text("\(word) : \(meaning) : \(wordindex)")
             Form {
                 Section(header: Text("Add an example of how to use your word?")) {
-                    Text("This word means: \(meaning)")
+                    
+                    
                     TextField("Add your example here", text: $wordexample, axis: .vertical)
                     Button (action: {
                         guard !wordexample.isEmpty else {return}
@@ -31,7 +32,6 @@ struct WordDisplayView: View {
                     }) {
                         Text("Add example")
                     }
-                    
                 }
                 Section {
                     ForEach(wordexamples, id: \.self) {note in
@@ -40,7 +40,13 @@ struct WordDisplayView: View {
                     }
                 
                 }
-            .navigationTitle("Your word: \(word)")
             }
         }
     }
+
+
+struct WordDisplayView_Previews: PreviewProvider {
+    static var previews: some View {
+        WordDisplayView(word: "TestWord", wordindex: 1, meaning: "TestMeaning")
+    }
+}

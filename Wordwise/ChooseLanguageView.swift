@@ -14,37 +14,46 @@ struct ChooseLanguageView: View {
     
     
     var body: some View {
-        VStack {
-            NavigationView {
-                Form {
-                    Section(header: Text("Add your chosen language to get started")) {
-                        VStack {
-                            HStack {
-                                TextField("My chosen language is...", text: $language)
-                                Button (action: {
-                                    guard !language.isEmpty else {return}
-                                    languages.append(language)
-                                    language = ""
-                                    
-                                }) {
-                                    Text("Add language")
-                                }
-                            }
-                        }
-                        
-                        Section {
-                            ForEach(languages.indices, id: \.self) {index in
-                                NavigationLink(destination: DefaultWordlistDisplayView(sortedAlphabetically: false)) {
-                                    Text(languages[index])
+
+    
+            VStack {
+                NavigationView {
+                    Form {
+                        Section(header: Text("Add your chosen language to get started")) {
+                            VStack {
+                                HStack {
+                                    TextField("My chosen language is...", text: $language)
+                                    Button (action: {
+                                        guard !language.isEmpty else {return}
+                                        languages.append(language)
+                                        language = ""
+                                        
+                                    }) {
+                                        Text("Add language")
+                                    }
                                 }
                             }
                             
+                            Section {
+                                ForEach(languages.indices, id: \.self) {index in
+                                    NavigationLink(destination: DefaultWordlistDisplayView(sortedAlphabetically: false)) {
+                                        Text(languages[index])
+                                    }
+                                }
+                                
+                            }
                         }
                     }
-                }
+                
+                
             }
-            
         }
     }
     
+}
+
+struct ChooseLanguageView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChooseLanguageView()
+    }
 }
