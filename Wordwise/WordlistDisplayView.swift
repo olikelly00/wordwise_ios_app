@@ -13,7 +13,7 @@ struct DefaultWordlistDisplayView: View {
     @State var languagesindex: Int = 0
     @State var word: String = ""
     @State var words: [(id: UUID, word: String, meaning: String)] = []
-    @State var wordindex: Int = 0
+    @State var wordindex: String = ""
     @State var meaning: String = ""
     @State var errorMessage: String?
     @State var sortedAlphabetically: Bool
@@ -21,7 +21,6 @@ struct DefaultWordlistDisplayView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
                 Form {
                     Section(header: Text("Add your latest word here:")) {
                         VStack {
@@ -47,7 +46,7 @@ struct DefaultWordlistDisplayView: View {
                             Toggle("Sort list A-Z", isOn: $sortedAlphabetically)
                             List {
                                 ForEach(words.indices, id: \.self) { index in
-                                    NavigationLink(destination: WordDisplayView(word: words[index].word, wordindex: index, meaning:  words[index].meaning)) {
+                                    NavigationLink(destination: WordDisplayView(word: words[index].word, wordindex: (words[index].id).uuidString, meaning:  words[index].meaning)) {
                                         if sortedAlphabetically {
                                             let sortedWords = words.sorted(by: { $0.word < $1.word })
                                             Text(sortedWords[index].word)
@@ -77,7 +76,6 @@ struct DefaultWordlistDisplayView: View {
                            
                         }
                         }
-                    }
                 
        
 

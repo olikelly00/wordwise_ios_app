@@ -11,14 +11,14 @@ import SwiftUI
 struct WordDisplayView: View {
 
     @State var word: String
-    @State var wordindex : Int
+    @State var wordindex : String?
     @State var meaning: String
     @State var wordexamples: [String] = []
     @State var wordexample: String = ""
     
     var body: some View {
         VStack{
-        Text("\(word) : \(meaning) : \(wordindex)")
+        Text("\(word) : \(meaning)")
             Form {
                 Section(header: Text("Add an example of how to use your word?")) {
                     
@@ -47,6 +47,6 @@ struct WordDisplayView: View {
 
 struct WordDisplayView_Previews: PreviewProvider {
     static var previews: some View {
-        WordDisplayView(word: "TestWord", wordindex: 1, meaning: "TestMeaning")
+        WordDisplayView(word: "TestWord", meaning: "TestMeaning")
     }
 }
