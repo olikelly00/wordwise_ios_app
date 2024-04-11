@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB578842BC69D2900B5A71F /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB578832BC69D2900B5A71F /* ChooseLanguageView.swift */; };
+		1EB578862BC6A0CD00B5A71F /* WordlistDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB578852BC6A0CD00B5A71F /* WordlistDisplayView.swift */; };
+		1EB578882BC6A1A900B5A71F /* WordDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB578872BC6A1A900B5A71F /* WordDisplayView.swift */; };
 		1EFA29252BC68C3D00A895C2 /* WordwiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA29242BC68C3D00A895C2 /* WordwiseApp.swift */; };
 		1EFA29272BC68C3D00A895C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA29262BC68C3D00A895C2 /* ContentView.swift */; };
 		1EFA29292BC68C3F00A895C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EFA29282BC68C3F00A895C2 /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EB578832BC69D2900B5A71F /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
+		1EB578852BC6A0CD00B5A71F /* WordlistDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistDisplayView.swift; sourceTree = "<group>"; };
+		1EB578872BC6A1A900B5A71F /* WordDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDisplayView.swift; sourceTree = "<group>"; };
 		1EFA29212BC68C3D00A895C2 /* Wordwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordwise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EFA29242BC68C3D00A895C2 /* WordwiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordwiseApp.swift; sourceTree = "<group>"; };
 		1EFA29262BC68C3D00A895C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 				1EFA29262BC68C3D00A895C2 /* ContentView.swift */,
 				1EFA29282BC68C3F00A895C2 /* Assets.xcassets */,
 				1EFA292A2BC68C3F00A895C2 /* Preview Content */,
+				1EB578832BC69D2900B5A71F /* ChooseLanguageView.swift */,
+				1EB578852BC6A0CD00B5A71F /* WordlistDisplayView.swift */,
+				1EB578872BC6A1A900B5A71F /* WordDisplayView.swift */,
 			);
 			path = Wordwise;
 			sourceTree = "<group>";
@@ -191,7 +200,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1EFA29202BC68C3D00A895C2 = {
 						CreatedOnToolsVersion = 14.2;
@@ -258,7 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EFA29272BC68C3D00A895C2 /* ContentView.swift in Sources */,
+				1EB578882BC6A1A900B5A71F /* WordDisplayView.swift in Sources */,
+				1EB578862BC6A0CD00B5A71F /* WordlistDisplayView.swift in Sources */,
 				1EFA29252BC68C3D00A895C2 /* WordwiseApp.swift in Sources */,
+				1EB578842BC69D2900B5A71F /* ChooseLanguageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +343,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -391,6 +404,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
